@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pengenalan Alat Musik Tradisional</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            transition: background-color 0.5s;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1em;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8em;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .navbar {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .navbar li {
+            margin-right: 30px;
+        }
+
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.1em;
+            transition: color 0.3s;
+        }
+
+        .navbar a:hover {
+            color: #ffa500; 
+        }
+
+        .hamburger-menu {
+            display: none;
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2em;
+            animation: fadeIn 1s;
+        }
+
+        section {
+            background-color: #fff;
+            padding: 1.5em;
+            margin-bottom: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            transition: transform 0.3s;
+            width: 80%; 
+        }
+
+        section:hover {
+            transform: scale(1.02);
+        }
+
+        .alat-musik {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin: 0 -10px; 
+        }
+
+        .alat-musik .description {
+            width: calc(33.333% - 20px);
+            text-align: center;
+            margin: 10px; 
+            transition: transform 0.3s;
+        }
+
+        .alat-musik .description:hover {
+            transform: scale(1.05);
+        }
+
+        .alat-musik img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            transition: transform 0.3s;
+        }
+
+        .alat-musik img:hover {
+            transform: scale(1.05);
+        }
+
+        h1, h2 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        button {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            margin: 0 10px;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 1em;
+            text-align: center;
+            clear: both;
+        }
+
+        .popup-box {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #ddd;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: none;
+            border-radius: 10px;
+            z-index: 1000;
+        }
+
+        .dark-mode {
+            background-color: #333;
+            color: #fff;
+        }
+
+        .dark-mode .navbar a {
+            color: #fff;
+        }
+
+        .dark-mode .popup-box {
+            background-color: #333;
+            color: #fff;
+            border: #333;
+        }
+
+        .navbar.show {
+            display: block;
+        }
+
+        .hamburger-menu {
+            display: block;
+            cursor: pointer;
+        }
+
+        .hamburger-menu span {
+            display: block;
+            width: 20px;
+            height: 2px;
+            background-color: #fff;
+            margin-bottom: 5px;
+        }
+
+        .hamburger-menu span:last-child {
+            margin-bottom: 0;
+        }
+
+        @media only screen and (max-width: 768px) {
+            .navbar {
+                display: none;
+                position: absolute;
+                top: 50px;
+                left: 0;
+                width: 100%;
+                background-color: #333;
+                padding: 10px;
+            }
+
+            .alat-musik .description {
+                width: 100%;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Pengenalan Alat Musik Tradisional</div>
+            <ul class="navbar">
+                <li><a href="#home">Beranda</a></li>
+                <li><a id="tentang-saya">Tentang Saya</a></li>
+            </ul>
+            <div class="hamburger-menu" id="hamburger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+    <main id="main-content">
+        <section id="home">
+            <h1>Selamat Datang di Website Pengenalan Alat Musik Tradisional</h1>
+            <p>Website ini dibuat untuk memperkenalkan alat musik tradisional Indonesia.</p>
+            <button id="dark-mode-button">Dark Mode</button>
+            <button id="light-mode-button" style="display: none;">Light Mode</button>
+        </section>
+        
+        <section class="alat-musik">
+            <div class="description">
+                <img src="angklung.jpg" alt="Angklung">
+                <h2>Angklung</h2>
+                <p>Sederhana tapi indah: Angklung dibuat dari bambu dan menghasilkan nada ketika digoyangkan. Meskipun terlihat sederhana, angklung dapat menciptakan harmoni yang kompleks ketika dimainkan dalam kelompok.</p>
+                <p><em>Warisan UNESCO:</em> Pada tahun 2010, angklung diakui sebagai Warisan Budaya Takbenda oleh UNESCO.</p>
+                <p><em>Sifat edukatif:</em> Alat musik ini sering digunakan untuk pendidikan musik karena mudah dipelajari.</p>
+            </div>
+            <div class="description">
+                <img src="gamelan.jpg" alt="Gamelan">
+                <h2>Gamelan</h2>
+                <p>Orkestra kuno: Gamelan adalah orkestra tradisional Indonesia yang terdiri dari berbagai instrumen seperti gong, kendang, dan saron.</p>
+                <p><em>Terhubung dengan alam:</em> Suara gamelan diyakini mampu berkomunikasi dengan roh dan menciptakan harmoni dengan alam.</p>
+                <p><em>Pengaruh besar:</em> Musik gamelan telah menginspirasi komposer Barat seperti Claude Debussy.</p>
+            </div>
+            <div class="description">
+                <img src="sasando.jpeg" alt="Sasando">
+                <h2>Sasando</h2>
+                <p>Unik dari NTT: Sasando adalah alat musik petik dari Pulau Rote, Nusa Tenggara Timur. Bentuknya menyerupai kipas besar.</p>
+                <p><em>Satu alat, dua suara:</em> Sasando modern memiliki dua bagian senar yang menghasilkan dua suara berbeda.</p>
+                <p><em>Terancam punah:</em> Sasando sempat terancam punah, tetapi kini ada upaya untuk melestarikannya.</p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 Muhamad Kelvin Saputra</p>
+    </footer>
+    <div class="popup-box" id="popup-box">
+        <h2>Tentang Saya</h2>
+        <p>Nama: Muhamad Kelvin Saputra</p>
+        <p>NIM: 2309106117</p>
+        <button id="close-popup">Tutup</button>
+    </div>
+    <script>
+        function darkMode() {
+            document.body.classList.add('dark-mode');
+            document.getElementById('dark-mode-button').style.display = 'none';
+            document.getElementById('light-mode-button').style.display = 'block';
+        }
+
+        function lightMode() {
+            document.body.classList.remove('dark-mode');
+            document.getElementById('dark-mode-button').style.display = 'block';
+            document.getElementById('light-mode-button').style.display = 'none';
+        }
+
+        function showPopup() {
+            document.getElementById('popup-box').style.display = 'block';
+        }
+
+        function closePopup() {
+            document.getElementById('popup-box').style.display = 'none';
+        }
+
+        function hamburgerMenu() {
+            document.getElementById('hamburger-menu').addEventListener('click', function() {
+                document.querySelector('.navbar').classList.toggle('show');
+            });
+        }
+
+        document.getElementById('dark-mode-button').addEventListener('click', darkMode);
+
+        document.getElementById('light-mode-button').addEventListener('click', lightMode);
+
+        document.getElementById('close-popup').addEventListener('click', closePopup);
+
+        hamburgerMenu();
+
+        document.getElementById('tentang-saya').addEventListener('click', showPopup);
+
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                document.querySelector('.navbar').classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>
